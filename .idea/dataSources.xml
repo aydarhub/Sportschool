@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Database Driver - jdbc:Cache://localhost:1972/SPORT_SCHOOL/" uuid="f78c8f02-bda1-466b-87d1-7d306782d239">
+      <driver-ref>bd9ca58d-1e76-400c-9c04-423ce46aa921</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.intersys.jdbc.CacheDriver</jdbc-driver>
+      <jdbc-url>jdbc:Cache://localhost:1972/SPORT_SCHOOL/</jdbc-url>
+    </data-source>
+  </component>
+</project>

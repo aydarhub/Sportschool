@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="cachedb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/Sportschool_war_exploded/WEB-INF/lib/cachedb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/Sportschool_war_exploded/WEB-INF/lib/cacheextreme.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/Sportschool_war_exploded/WEB-INF/lib/cachegateway.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/Sportschool_war_exploded/WEB-INF/lib/cachejdbc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/Sportschool_war_exploded/WEB-INF/lib/cacheextreme.jar!/" />
+    </SOURCES>
+  </library>
+</component>
