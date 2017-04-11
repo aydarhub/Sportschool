@@ -4,14 +4,11 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <servlet>
-        <servlet-name>Redirect</servlet-name>
+        <servlet-name>PupilServlet</servlet-name>
         <servlet-class>PupilServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Redirect</servlet-name>
-        <url-pattern>/redirect</url-pattern>
+        <servlet-name>PupilServlet</servlet-name>
+        <url-pattern>/pupils</url-pattern>
     </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>redirect.jsp</welcome-file>
-    </welcome-file-list>
 </web-app>

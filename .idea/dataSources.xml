@@ -7,6 +7,7 @@
       <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.intersys.jdbc.CacheDriver</jdbc-driver>
       <jdbc-url>jdbc:Cache://localhost:1972/SPORT_SCHOOL/</jdbc-url>
+      <default-dialect>MySQL</default-dialect>
     </data-source>
   </component>
 </project>
