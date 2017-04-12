@@ -1,3 +1,4 @@
+package com.aydar.sportschool;
 
 public class KindOfSport {
     private int id;

@@ -1,13 +1,17 @@
+import com.aydar.sportschool.Labs.PupilsLab;
+import com.aydar.sportschool.Pupil;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PupilServlet extends HttpServlet {
-    private static String id = "id";
-    private ResultSet rs;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -16,20 +20,16 @@ public class PupilServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html");
-//
-//        try {
-//            rs = db.DBConnection.getDbConnection().getStatement().executeQuery("SELECT count(*) FROM SPORTSCHOOL.KindOfSport");
-//            while (rs.next()) {
-//                id = Integer.toString(rs.getInt(1));
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        req.setAttribute("id", id);
-//        req.getRequestDispatcher("pupils.jsp").forward(req, resp);
-        String number = req.getParameter("number");
-        resp.getOutputStream().write((number + " servlet.").getBytes());
+        List<Pupil> pupils = new ArrayList<>();
+        try {
+            pupils.addAll(PupilsLab.get().getPupils());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (Pupil pupil : pupils) {
+            System.out.println(pupil.getName());
+        }
+        req.setAttribute("pupils", pupils);
+        req.getRequestDispatcher("WEB-INF/pupils.jsp").forward(req, resp);
     }
 }

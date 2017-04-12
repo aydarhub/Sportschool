@@ -1,11 +1,10 @@
-package db;
+package com.aydar.sportschool.db;
 
 import com.intersys.jdbc.CacheDriver;
 
 import java.sql.*;
 
 public class DBConnection {
-    private static DBConnection dbConnection;
 
     private String url = "jdbc:Cache://localhost:1972/SPORT_SCHOOL/kk.log";
     private String username = "Admin";
@@ -14,7 +13,7 @@ public class DBConnection {
     private static Connection con;
     private Statement statement;
 
-    private DBConnection() {
+    public DBConnection() {
         try {
             Driver driver = new CacheDriver();
             DriverManager.registerDriver(driver);
@@ -25,14 +24,16 @@ public class DBConnection {
         }
     }
 
-    public static DBConnection getDbConnection() {
-        if (dbConnection == null) {
-            dbConnection = new DBConnection();
-        }
-        return dbConnection;
-    }
-
     public Statement getStatement() {
         return statement;
+    }
+
+    public void close() {
+        try {
+            statement.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

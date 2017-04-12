@@ -1,3 +1,4 @@
+package com.aydar.sportschool;
 
 public class Trainer {
     private int id;
