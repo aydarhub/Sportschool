@@ -1,9 +1,6 @@
-package com.aydar.sportschool.Fetchers;
+package com.aydar.sportschool.Adapters;
 
 import com.aydar.sportschool.Group;
-import com.aydar.sportschool.Labs.SportsCategoriesLab;
-import com.aydar.sportschool.Pupil;
-import com.aydar.sportschool.SportsCategory;
 import com.aydar.sportschool.db.DBConnection;
 
 import java.sql.ResultSet;
@@ -12,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupsFetcher {
+public class GroupsAdapter {
 
     private static final String mQuery = "SELECT * FROM SPORTSCHOOL.Party";
 

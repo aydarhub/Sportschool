@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -6,6 +7,7 @@
     <title>Title</title>
 </head>
 <body>
+    <h1>Ученики</h1>
     <table border="1px">
         <tr>
             <th>id</th>
@@ -31,5 +33,42 @@
         </c:forEach>
 
     </table>
+    <h2>Добавить ученика</h2>
+    <form action="/add" method="post">
+        <table>
+            <tr>
+                <td><label for="name">Имя:</label></td>
+                <td><input id="name" name="name" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="birthday">День рождения:</label></td>
+                <td><input id="birthday" name="birthday" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="group">Группа:</label></td>
+                <td><input id="group" name="groupId" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="phone">Телефон:</label></td>
+                <td><input id="phone" name="phone" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="address">Адрес:</label></td>
+                <td><input id="address" name="address" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="sportsCategory">Спортивная категория:</label></td>
+                <td><input id="sportsCategory" name="sportsCategoryId" type="text"></td>
+            </tr>
+            <tr>
+                <td><label for="rewards">Награды:</label></td>
+                <td><input id="rewards" name="rewards" type="text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>

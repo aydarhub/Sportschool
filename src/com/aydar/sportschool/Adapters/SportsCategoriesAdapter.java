@@ -1,6 +1,5 @@
-package com.aydar.sportschool.Fetchers;
+package com.aydar.sportschool.Adapters;
 
-import com.aydar.sportschool.Pupil;
 import com.aydar.sportschool.SportsCategory;
 import com.aydar.sportschool.db.DBConnection;
 
@@ -10,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SportsCategoriesFetcher {
+public class SportsCategoriesAdapter {
 
     private static final String mQuery = "SELECT * FROM SPORTSCHOOL.SportsCategory";
 

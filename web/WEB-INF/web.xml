@@ -7,8 +7,16 @@
         <servlet-name>PupilServlet</servlet-name>
         <servlet-class>PupilServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddServlet</servlet-name>
+        <servlet-class>AddServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PupilServlet</servlet-name>
         <url-pattern>/pupils</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,3 +1,4 @@
+import com.aydar.sportschool.Adapters.PupilsAdapter;
 import com.aydar.sportschool.Labs.PupilsLab;
 import com.aydar.sportschool.Pupil;
 
@@ -20,14 +21,12 @@ public class PupilServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         List<Pupil> pupils = new ArrayList<>();
         try {
-            pupils.addAll(PupilsLab.get().getPupils());
+            pupils.addAll(new PupilsAdapter().getPupils());
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        for (Pupil pupil : pupils) {
-            System.out.println(pupil.getName());
         }
         req.setAttribute("pupils", pupils);
         req.getRequestDispatcher("WEB-INF/pupils.jsp").forward(req, resp);

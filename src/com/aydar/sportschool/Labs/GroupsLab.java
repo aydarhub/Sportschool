@@ -1,9 +1,7 @@
 package com.aydar.sportschool.Labs;
 
-import com.aydar.sportschool.Fetchers.GroupsFetcher;
-import com.aydar.sportschool.Fetchers.PupilsFetcher;
+import com.aydar.sportschool.Adapters.GroupsAdapter;
 import com.aydar.sportschool.Group;
-import com.aydar.sportschool.Pupil;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,11 +18,15 @@ public class GroupsLab {
         return sGroupsLab;
     }
     private GroupsLab() throws SQLException {
-        mGroups = new GroupsFetcher().getGroups();
+        mGroups = new GroupsAdapter().getGroups();
     }
 
     public List<Group> getGroups() {
         return mGroups;
+    }
+
+    public void addGroup() {
+
     }
 
 

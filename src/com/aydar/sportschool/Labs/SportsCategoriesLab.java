@@ -1,8 +1,6 @@
 package com.aydar.sportschool.Labs;
 
-import com.aydar.sportschool.Fetchers.PupilsFetcher;
-import com.aydar.sportschool.Fetchers.SportsCategoriesFetcher;
-import com.aydar.sportschool.Pupil;
+import com.aydar.sportschool.Adapters.SportsCategoriesAdapter;
 import com.aydar.sportschool.SportsCategory;
 
 import java.sql.SQLException;
@@ -20,7 +18,7 @@ public class SportsCategoriesLab {
         return sSportsCategoriesLab;
     }
     private SportsCategoriesLab() throws SQLException {
-        mSportsCategories = new SportsCategoriesFetcher().getSportsCategories();
+        mSportsCategories = new SportsCategoriesAdapter().getSportsCategories();
     }
 
     public List<SportsCategory> getSportsCategories() {
