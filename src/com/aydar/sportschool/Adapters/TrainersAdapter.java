@@ -34,7 +34,7 @@ public class TrainersAdapter {
             SportsCategory sportsCategory = null;
             for (int i = 0; i < sportsCategories.size(); i++) {
                 if (sportsCategories.get(i).getId() == sportsCategoryId) {
-                    sportsCategory = new SportsCategory(id, sportsCategories.get(i).getName());
+                    sportsCategory = sportsCategories.get(i);
                     break;
                 }
             }

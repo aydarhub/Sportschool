@@ -32,7 +32,7 @@
 
     </table>
 
-    <h2>Добавить ученика</h2>
+    <h2>Добавить тренера</h2>
     <form action="${pageContext.request.contextPath}/addTrainer" method="post">
         <table>
             <tr>

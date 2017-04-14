@@ -19,6 +19,14 @@
         <servlet-name>TrainersServlet</servlet-name>
         <servlet-class>TrainersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GroupsServlet</servlet-name>
+        <servlet-class>GroupsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddGroupServlet</servlet-name>
+        <servlet-class>AddGroupServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PupilServlet</servlet-name>
         <url-pattern>/pupils</url-pattern>
@@ -34,6 +42,14 @@
     <servlet-mapping>
         <servlet-name>AddTrainerServlet</servlet-name>
         <url-pattern>/addTrainer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupsServlet</servlet-name>
+        <url-pattern>/groups</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddGroupServlet</servlet-name>
+        <url-pattern>/addGroup</url-pattern>
     </servlet-mapping>
     
 </web-app>

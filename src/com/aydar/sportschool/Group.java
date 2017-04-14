@@ -1,25 +1,25 @@
 package com.aydar.sportschool;
 
 public class Group {
-    private int id;
-    private String name;
-    private String trainer;
+    private int mId;
+    private String mName;
+    private Trainer mTrainer;
 
-    public Group(int id, String name, String trainer) {
-        this.id = id;
-        this.name = name;
-        this.trainer = trainer;
+    public Group(int id, String name, Trainer trainer) {
+        mId = id;
+        mName = name;
+        mTrainer = trainer;
     }
 
     public int getId() {
-        return id;
+        return mId;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
-    public String getTrainer() {
-        return trainer;
+    public Trainer getTrainer() {
+        return mTrainer;
     }
 }
