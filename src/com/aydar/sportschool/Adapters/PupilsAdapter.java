@@ -1,8 +1,6 @@
 package com.aydar.sportschool.Adapters;
 
 import com.aydar.sportschool.Group;
-import com.aydar.sportschool.Labs.GroupsLab;
-import com.aydar.sportschool.Labs.SportsCategoriesLab;
 import com.aydar.sportschool.Pupil;
 import com.aydar.sportschool.SportsCategory;
 import com.aydar.sportschool.db.DBConnection;
@@ -23,8 +21,8 @@ public class PupilsAdapter {
     public List<Pupil> getPupils() throws SQLException {
         final String selectQuery = "SELECT * FROM SPORTSCHOOL.Pupil";
         List<Pupil> pupils = new ArrayList<>();
-        List<SportsCategory> sportsCategories = SportsCategoriesLab.get().getSportsCategories();
-        List<Group> groups = GroupsLab.get().getGroups();
+        List<SportsCategory> sportsCategories = new SportsCategoriesAdapter().getSportsCategories();
+        List<Group> groups = new GroupsAdapter().getGroups();
         mDBConnection = new DBConnection();
         mStatement = mDBConnection.getStatement();
         mResultSet = mStatement.executeQuery(selectQuery);
@@ -45,7 +43,7 @@ public class PupilsAdapter {
             SportsCategory sportsCategory = null;
             for (int i = 0; i < sportsCategories.size(); i++) {
                 if (sportsCategories.get(i).getId() == sportsCategoryId) {
-                    sportsCategory = new SportsCategory(id, sportsCategories.get(i).getCategoryName());
+                    sportsCategory = new SportsCategory(id, sportsCategories.get(i).getName());
                     break;
                 }
             }
@@ -65,24 +63,24 @@ public class PupilsAdapter {
         StringBuilder insertQueryColumns = new StringBuilder();
         StringBuilder insertQueryValues = new StringBuilder();
 
-        insertQueryColumns.append("INSERT INTO SPORTSCHOOL.Pupil(name, birthday, groupId, ");
-        insertQueryValues.append("VALUES('").append(name).append("', '").append(birthday).append("', ").append(groupId).append(", '");
+        insertQueryColumns.append("INSERT INTO SPORTSCHOOL.Pupil(name, birthday, groupId");
+        insertQueryValues.append("VALUES('").append(name).append("', '").append(birthday).append("', ").append(groupId);
 
         if (phone != null && !phone.equals("")) {
-            insertQueryColumns.append("phone, ");
-            insertQueryValues.append(phone).append("', '");
+            insertQueryColumns.append(", phone");
+            insertQueryValues.append(", '").append(phone).append("'");
         }
         if (address != null && !address.equals("")) {
-            insertQueryColumns.append("address, ");
-            insertQueryValues.append(address).append("', ");
+            insertQueryColumns.append(", address");
+            insertQueryValues.append(", '").append(address).append("'");
         }
         if (sportsCategoryId >= 0) {
-            insertQueryColumns.append("sportsCategory, ");
-            insertQueryValues.append(sportsCategoryId).append(", '");
+            insertQueryColumns.append(", sportsCategory");
+            insertQueryValues.append(", ").append(sportsCategoryId);
         }
         if (rewards != null && !rewards.equals("")) {
-            insertQueryColumns.append("rewards");
-            insertQueryValues.append(rewards).append("'");
+            insertQueryColumns.append(", rewards");
+            insertQueryValues.append(", '").append(rewards).append("'");
         }
         insertQueryColumns.append(") ");
         insertQueryValues.append(")");

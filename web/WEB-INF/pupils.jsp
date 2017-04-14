@@ -19,38 +19,44 @@
             <th>Спортивный разряд</th>
             <th>Награды</th>
         </tr>
-        <c:forEach items="${requestScope.pupils}" var="pupils">
+        <c:forEach items="${requestScope.pupils}" var="pupil">
             <tr>
-                <td>${pupils.id}</td>
-                <td>${pupils.name}</td>
-                <td>${pupils.birthday}</td>
-                <td>${pupils.group.name}</td>
-                <td>${pupils.phone}</td>
-                <td>${pupils.address}</td>
-                <td>${pupils.sportsCategory.categoryName}</td>
-                <td>${pupils.rewards}</td>
+                <td>${pupil.id}</td>
+                <td>${pupil.name}</td>
+                <td>${pupil.birthday}</td>
+                <td>${pupil.group.name}</td>
+                <td>${pupil.phone}</td>
+                <td>${pupil.address}</td>
+                <td>${pupil.sportsCategory.name}</td>
+                <td>${pupil.rewards}</td>
             </tr>
         </c:forEach>
 
     </table>
     <h2>Добавить ученика</h2>
-    <form action="/add" method="post">
+    <form action="${pageContext.request.contextPath}/addPupil" method="post">
         <table>
             <tr>
                 <td><label for="name">Имя:</label></td>
-                <td><input id="name" name="name" type="text"></td>
+                <td><input id="name" name="name" type="text" required> *</td>
             </tr>
             <tr>
                 <td><label for="birthday">День рождения:</label></td>
-                <td><input id="birthday" name="birthday" type="text"></td>
+                <td><input id="birthday" name="birthday" type="text" required> *</td>
             </tr>
             <tr>
                 <td><label for="group">Группа:</label></td>
-                <td><input id="group" name="groupId" type="text"></td>
+                <td>
+                    <select id="group" name="groupId">
+                        <c:forEach items="${requestScope.groups}" var="group">
+                            <option value="${group.id}">${group.name}</option>
+                        </c:forEach>
+                    </select> *
+                </td>
             </tr>
             <tr>
                 <td><label for="phone">Телефон:</label></td>
-                <td><input id="phone" name="phone" type="text"></td>
+                <td><input id="phone" name="phone" type="tel" pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"></td>
             </tr>
             <tr>
                 <td><label for="address">Адрес:</label></td>
@@ -58,7 +64,13 @@
             </tr>
             <tr>
                 <td><label for="sportsCategory">Спортивная категория:</label></td>
-                <td><input id="sportsCategory" name="sportsCategoryId" type="text"></td>
+                <td>
+                    <select id="sportsCategory" name="sportsCategoryId">
+                    <c:forEach items="${requestScope.sportsCategories}" var="category">
+                        <option value="${category.id}">${category.name}</option>
+                    </c:forEach>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td><label for="rewards">Награды:</label></td>
