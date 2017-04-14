@@ -1,40 +1,49 @@
 package com.aydar.sportschool;
 
 public class Trainer {
-    private int id;
-    private String name;
-    private int age;
+    private int mId;
+    private String mName;
+    private String mBirthday;
+    private KindOfSport mKindOfSport;
+    private SportsCategory mSportsCategory;
+    private String mPhone;
+    private String mAddress;
+
+    public Trainer(int id, String name, String birthday, KindOfSport kindOfSport, SportsCategory sportsCategory, String phone, String address) {
+        mId = id;
+        mName = name;
+        mBirthday = birthday;
+        mKindOfSport = kindOfSport;
+        mSportsCategory = sportsCategory;
+        mPhone = phone;
+        mAddress = address;
+    }
 
     public int getId() {
-        return id;
+        return mId;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
-    public int getAge() {
-        return age;
+    public String getBirthday() {
+        return mBirthday;
     }
 
     public KindOfSport getKindOfSport() {
-        return kindOfSport;
+        return mKindOfSport;
     }
 
     public SportsCategory getSportsCategory() {
-        return sportsCategory;
+        return mSportsCategory;
     }
 
     public String getPhone() {
-        return phone;
+        return mPhone;
     }
 
     public String getAddress() {
-        return address;
+        return mAddress;
     }
-
-    private KindOfSport kindOfSport;
-    private SportsCategory sportsCategory;
-    private String phone;
-    private String address;
 }
