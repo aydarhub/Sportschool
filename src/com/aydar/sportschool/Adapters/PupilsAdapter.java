@@ -15,8 +15,6 @@ import java.util.List;
 public class PupilsAdapter {
 
     private DBConnection mDBConnection;
-    private Statement mStatement;
-    private ResultSet mResultSet;
 
     public List<Pupil> getPupils() throws SQLException {
         final String selectQuery = "SELECT * FROM SPORTSCHOOL.Pupil";
@@ -24,14 +22,13 @@ public class PupilsAdapter {
         List<SportsCategory> sportsCategories = new SportsCategoriesAdapter().getSportsCategories();
         List<Group> groups = new GroupsAdapter().getGroups();
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mResultSet = mStatement.executeQuery(selectQuery);
+        ResultSet resultSet = new DBConnection().getStatement().executeQuery(selectQuery);
 
-        while (mResultSet.next()) {
-            int id = mResultSet.getInt("ID");
-            String name = mResultSet.getString("name");
-            String birthday = mResultSet.getString("birthday");
-            int groupId = mResultSet.getInt("groupId");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            String birthday = resultSet.getString("birthday");
+            int groupId = resultSet.getInt("groupId");
             Group group = null;
             for (int i = 0; i < groups.size(); i++) {
                 if (groups.get(i).getId() == groupId) {
@@ -39,7 +36,7 @@ public class PupilsAdapter {
                     break;
                 }
             }
-            int sportsCategoryId = mResultSet.getInt("sportsCategory");
+            int sportsCategoryId = resultSet.getInt("sportsCategory");
             SportsCategory sportsCategory = null;
             for (int i = 0; i < sportsCategories.size(); i++) {
                 if (sportsCategories.get(i).getId() == sportsCategoryId) {
@@ -47,9 +44,9 @@ public class PupilsAdapter {
                     break;
                 }
             }
-            String rewards = mResultSet.getString("rewards");
-            String phone = mResultSet.getString("phone");
-            String address = mResultSet.getString("address");
+            String rewards = resultSet.getString("rewards");
+            String phone = resultSet.getString("phone");
+            String address = resultSet.getString("address");
             pupils.add(new Pupil(id, name, birthday, group, sportsCategory, rewards, phone, address));
         }
 
@@ -88,8 +85,7 @@ public class PupilsAdapter {
 
         System.out.println(insertQueryColumns.toString() + insertQueryValues.toString());
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mStatement.executeUpdate(insertQueryColumns.toString() + insertQueryValues.toString());
+        mDBConnection.getStatement().executeUpdate(insertQueryColumns.toString() + insertQueryValues.toString());
         mDBConnection.close();
         mDBConnection = null;
 

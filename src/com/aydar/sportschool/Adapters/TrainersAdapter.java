@@ -14,8 +14,6 @@ import java.util.List;
 public class TrainersAdapter {
 
     private DBConnection mDBConnection;
-    private Statement mStatement;
-    private ResultSet mResultSet;
 
     public List<Trainer> getTrainers() throws SQLException {
         final String selectQuery = "SELECT * FROM SPORTSCHOOL.Trainer";
@@ -23,14 +21,13 @@ public class TrainersAdapter {
         List<SportsCategory> sportsCategories = new SportsCategoriesAdapter().getSportsCategories();
         List<KindOfSport> kindsOfSport = new KindsOfSportAdapter().getKindsOfSport();
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mResultSet = mStatement.executeQuery(selectQuery);
+        ResultSet resultSet = mDBConnection.getStatement().executeQuery(selectQuery);
 
-        while (mResultSet.next()) {
-            int id = mResultSet.getInt("ID");
-            String name = mResultSet.getString("name");
-            String birthday = mResultSet.getString("birthday");
-            int sportsCategoryId = mResultSet.getInt("sportsCategory");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            String birthday = resultSet.getString("birthday");
+            int sportsCategoryId = resultSet.getInt("sportsCategory");
             SportsCategory sportsCategory = null;
             for (int i = 0; i < sportsCategories.size(); i++) {
                 if (sportsCategories.get(i).getId() == sportsCategoryId) {
@@ -38,7 +35,7 @@ public class TrainersAdapter {
                     break;
                 }
             }
-            int kindOfSportId = mResultSet.getInt("kindOfSport");
+            int kindOfSportId = resultSet.getInt("kindOfSport");
             KindOfSport kindOfSport = null;
             for (int i = 0; i < sportsCategories.size(); i++) {
                 if (kindsOfSport.get(i).getId() == kindOfSportId) {
@@ -46,8 +43,8 @@ public class TrainersAdapter {
                     break;
                 }
             }
-            String phone = mResultSet.getString("phone");
-            String address = mResultSet.getString("address");
+            String phone = resultSet.getString("phone");
+            String address = resultSet.getString("address");
             trainers.add(new Trainer(id, name, birthday, kindOfSport, sportsCategory, phone, address));
         }
 
@@ -65,9 +62,8 @@ public class TrainersAdapter {
         System.out.println(insertQuery);
 
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
 
-        mStatement.executeUpdate(insertQuery);
+        mDBConnection.getStatement().executeUpdate(insertQuery);
 
         mDBConnection.close();
         mDBConnection = null;

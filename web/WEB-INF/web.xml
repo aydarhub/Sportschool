@@ -27,6 +27,14 @@
         <servlet-name>AddGroupServlet</servlet-name>
         <servlet-class>AddGroupServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>KindsOfSportServlet</servlet-name>
+        <servlet-class>KindsOfSportServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddKindOfSportServlet</servlet-name>
+        <servlet-class>AddKindOfSportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PupilServlet</servlet-name>
         <url-pattern>/pupils</url-pattern>
@@ -50,6 +58,14 @@
     <servlet-mapping>
         <servlet-name>AddGroupServlet</servlet-name>
         <url-pattern>/addGroup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>KindsOfSportServlet</servlet-name>
+        <url-pattern>/kinds_of_sport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddKindOfSportServlet</servlet-name>
+        <url-pattern>/addKindOfSport</url-pattern>
     </servlet-mapping>
     
 </web-app>

@@ -15,20 +15,17 @@ public class GroupsAdapter {
     private static final String mQuery = "SELECT * FROM SPORTSCHOOL.Party";
 
     private DBConnection mDBConnection;
-    private Statement mStatement;
-    private ResultSet mResultSet;
 
     public List<Group> getGroups() throws SQLException {
         List<Group> groups = new ArrayList<>();
         List<Trainer> trainers = new TrainersAdapter().getTrainers();
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mResultSet = mStatement.executeQuery(mQuery);
+        ResultSet resultSet = mDBConnection.getStatement().executeQuery(mQuery);
 
-        while (mResultSet.next()) {
-            int id = mResultSet.getInt("ID");
-            String name = mResultSet.getString("name");
-            int trainerId = mResultSet.getInt("trainer");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            int trainerId = resultSet.getInt("trainer");
             Trainer trainer = null;
             for (int i = 0; i < trainers.size(); i++) {
                 if (trainers.get(i).getId() == trainerId) {
@@ -51,9 +48,7 @@ public class GroupsAdapter {
         System.out.println(insertQuery);
 
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-
-        mStatement.executeUpdate(insertQuery);
+        mDBConnection.getStatement().executeUpdate(insertQuery);
 
         mDBConnection.close();
         mDBConnection = null;

@@ -10,26 +10,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KindsOfSportAdapter {
-    private static final String mQuery = "SELECT * FROM SPORTSCHOOL.KindOfSport";
 
     private DBConnection mDBConnection;
-    private Statement mStatement;
-    private ResultSet mResultSet;
 
     public List<KindOfSport> getKindsOfSport() throws SQLException {
+        final String selectQuery = "SELECT * FROM SPORTSCHOOL.KindOfSport";
         List<KindOfSport> kindOfSports = new ArrayList<>();
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mResultSet = mStatement.executeQuery(mQuery);
+        ResultSet resultSet = mDBConnection.getStatement().executeQuery(selectQuery);
 
-        while (mResultSet.next()) {
-            int id = mResultSet.getInt("ID");
-            String name = mResultSet.getString("name");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
             kindOfSports.add(new KindOfSport(id, name));
         }
 
-        mStatement.close();
+        mDBConnection.close();
+        mDBConnection = null;
 
         return kindOfSports;
+    }
+
+    public void addKindOfSport(String name) throws SQLException {
+        final String insertQuery = "INSERT INTO SPORTSCHOOL.KindOfSport(name) " +
+                "VALUES ('" + name +  "')";
+
+        System.out.println(insertQuery);
+
+        mDBConnection = new DBConnection();
+
+        mDBConnection.getStatement().executeUpdate(insertQuery);
+
+        mDBConnection.close();
+        mDBConnection = null;
     }
 }

@@ -14,22 +14,20 @@ public class SportsCategoriesAdapter {
     private static final String mQuery = "SELECT * FROM SPORTSCHOOL.SportsCategory";
 
     private DBConnection mDBConnection;
-    private Statement mStatement;
-    private ResultSet mResultSet;
 
     public List<SportsCategory> getSportsCategories() throws SQLException {
         List<SportsCategory> sportsCategories = new ArrayList<>();
         mDBConnection = new DBConnection();
-        mStatement = mDBConnection.getStatement();
-        mResultSet = mStatement.executeQuery(mQuery);
+        ResultSet resultSet = mDBConnection.getStatement().executeQuery(mQuery);
 
-        while (mResultSet.next()) {
-            int id = mResultSet.getInt("ID");
-            String category = mResultSet.getString("category");
+        while (resultSet.next()) {
+            int id = resultSet.getInt("ID");
+            String category = resultSet.getString("category");
             sportsCategories.add(new SportsCategory(id, category));
         }
 
-        mStatement.close();
+        mDBConnection.close();
+        mDBConnection = null;
 
         return sportsCategories;
     }
