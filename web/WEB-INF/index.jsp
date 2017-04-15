@@ -10,8 +10,8 @@
     <li><a href="pupils">Ученики</a></li>
     <li><a href="trainers">Тренеры</a></li>
     <li><a href="groups">Группы</a></li>
-    <li><a href="kindOfSports">Виды спорта</a></li>
-    <li><a href="sportsCategories">Спортивные разряды</a></li>
+    <li><a href="kinds_of_sport">Виды спорта</a></li>
+    <li><a href="sports_categories">Спортивные разряды</a></li>
   </ul>
   </body>
 </html>

@@ -35,6 +35,14 @@
         <servlet-name>AddKindOfSportServlet</servlet-name>
         <servlet-class>AddKindOfSportServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SportsCategoriesServlet</servlet-name>
+        <servlet-class>SportsCategoriesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddSportsCategoryServlet</servlet-name>
+        <servlet-class>AddSportsCategoryServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>PupilServlet</servlet-name>
         <url-pattern>/pupils</url-pattern>
@@ -66,6 +74,14 @@
     <servlet-mapping>
         <servlet-name>AddKindOfSportServlet</servlet-name>
         <url-pattern>/addKindOfSport</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SportsCategoriesServlet</servlet-name>
+        <url-pattern>/sports_categories</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddSportsCategoryServlet</servlet-name>
+        <url-pattern>/addSportsCategory</url-pattern>
     </servlet-mapping>
     
 </web-app>

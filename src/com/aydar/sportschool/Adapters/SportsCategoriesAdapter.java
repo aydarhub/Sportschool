@@ -31,4 +31,18 @@ public class SportsCategoriesAdapter {
 
         return sportsCategories;
     }
+
+    public void addSportsCategory(String name) throws SQLException {
+        final String insertQuery = "INSERT INTO SPORTSCHOOL.SportsCategory(category) " +
+                "VALUES ('" + name +  "')";
+
+        System.out.println(insertQuery);
+
+        mDBConnection = new DBConnection();
+
+        mDBConnection.getStatement().executeUpdate(insertQuery);
+
+        mDBConnection.close();
+        mDBConnection = null;
+    }
 }
