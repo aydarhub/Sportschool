@@ -27,6 +27,7 @@
                 <td>${trainer.address}</td>
                 <td>${trainer.phone}</td>
                 <td>${trainer.sportsCategory.name}</td>
+                <td><a href="/delete?table=Trainer&id=${trainer.id}">Удалить</a></td>
             </tr>
         </c:forEach>
 

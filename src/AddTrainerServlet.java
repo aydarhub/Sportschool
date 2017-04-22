@@ -1,4 +1,3 @@
-import com.aydar.sportschool.Adapters.PupilsAdapter;
 import com.aydar.sportschool.Adapters.TrainersAdapter;
 
 import javax.servlet.ServletException;

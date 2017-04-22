@@ -82,12 +82,18 @@ public class PupilsAdapter {
         insertQueryColumns.append(") ");
         insertQueryValues.append(")");
 
-
-        System.out.println(insertQueryColumns.toString() + insertQueryValues.toString());
         mDBConnection = new DBConnection();
         mDBConnection.getStatement().executeUpdate(insertQueryColumns.toString() + insertQueryValues.toString());
         mDBConnection.close();
         mDBConnection = null;
 
+    }
+
+    public static void deleteItem(int id) throws SQLException {
+        final String deleteQuery = "DELETE FROM SPORTSCHOOL.Pupil WHERE id = " + id;
+
+        DBConnection dbConnection = new DBConnection();
+        dbConnection.getStatement().executeUpdate(deleteQuery);
+        dbConnection.close();
     }
 }

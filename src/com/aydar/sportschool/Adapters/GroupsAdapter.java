@@ -53,4 +53,12 @@ public class GroupsAdapter {
         mDBConnection.close();
         mDBConnection = null;
     }
+
+    public static void deleteItem(int id) throws SQLException {
+        final String deleteQuery = "DELETE FROM SPORTSCHOOL.Party WHERE id = " + id;
+
+        DBConnection dbConnection = new DBConnection();
+        dbConnection.getStatement().executeUpdate(deleteQuery);
+        dbConnection.close();
+    }
 }

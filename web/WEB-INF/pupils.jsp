@@ -29,6 +29,7 @@
                 <td>${pupil.address}</td>
                 <td>${pupil.sportsCategory.name}</td>
                 <td>${pupil.rewards}</td>
+                <td><a href="/delete?table=Pupil&id=${pupil.id}">Удалить</a></td>
             </tr>
         </c:forEach>
 

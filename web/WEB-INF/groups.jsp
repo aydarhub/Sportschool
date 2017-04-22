@@ -19,6 +19,7 @@
                 <td>${group.id}</td>
                 <td>${group.name}</td>
                 <td>${group.trainer.name}</td>
+                <td><a href="/delete?table=Group&id=${group.id}">Удалить</a></td>
             </tr>
         </c:forEach>
 

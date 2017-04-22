@@ -69,4 +69,12 @@ public class TrainersAdapter {
         mDBConnection = null;
 
     }
+
+    public static void deleteItem(int id) throws SQLException {
+        final String deleteQuery = "DELETE FROM SPORTSCHOOL.Trainer WHERE id = " + id;
+
+        DBConnection dbConnection = new DBConnection();
+        dbConnection.getStatement().executeUpdate(deleteQuery);
+        dbConnection.close();
+    }
 }

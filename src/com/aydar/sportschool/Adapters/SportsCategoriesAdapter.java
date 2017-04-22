@@ -11,11 +11,12 @@ import java.util.List;
 
 public class SportsCategoriesAdapter {
 
-    private static final String mQuery = "SELECT * FROM SPORTSCHOOL.SportsCategory";
 
     private DBConnection mDBConnection;
 
     public List<SportsCategory> getSportsCategories() throws SQLException {
+        final String mQuery = "SELECT * FROM SPORTSCHOOL.SportsCategory";
+
         List<SportsCategory> sportsCategories = new ArrayList<>();
         mDBConnection = new DBConnection();
         ResultSet resultSet = mDBConnection.getStatement().executeQuery(mQuery);
@@ -44,5 +45,13 @@ public class SportsCategoriesAdapter {
 
         mDBConnection.close();
         mDBConnection = null;
+    }
+
+    public static void deleteItem(int id) throws SQLException {
+        final String deleteQuery = "DELETE FROM SPORTSCHOOL.SportsCategory WHERE id = " + id;
+
+        DBConnection dbConnection = new DBConnection();
+        dbConnection.getStatement().executeUpdate(deleteQuery);
+        dbConnection.close();
     }
 }

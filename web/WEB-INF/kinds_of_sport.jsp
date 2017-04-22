@@ -17,6 +17,7 @@
         <tr>
             <td>${kindOfSport.id}</td>
             <td>${kindOfSport.name}</td>
+            <td><a href="/delete?table=KindOfSport&id=${kindOfSport.id}">Удалить</a></td>
         </tr>
     </c:forEach>
 

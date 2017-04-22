@@ -10,28 +10,28 @@ public class DBConnection {
     private String username = "Admin";
     private String password = "blabla";
 
-    private static Connection con;
-    private Statement statement;
+    private static Connection mConnection;
+    private Statement mStatement;
 
     public DBConnection() {
         try {
             Driver driver = new CacheDriver();
             DriverManager.registerDriver(driver);
-            con = DriverManager.getConnection(url, username, password);
-            statement = con.createStatement();
+            mConnection = DriverManager.getConnection(url, username, password);
+            mStatement = mConnection.createStatement();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
     public Statement getStatement() {
-        return statement;
+        return mStatement;
     }
 
     public void close() {
         try {
-            statement.close();
-            con.close();
+            mStatement.close();
+            mConnection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
